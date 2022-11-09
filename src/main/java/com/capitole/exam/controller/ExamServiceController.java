@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capitole.exam.domain.ExamServiceDto;
 import com.capitole.exam.services.ExamService;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
-@Slf4j
+@Log4j
 @RestController
 @RequestMapping(value = "consultar")
 public class ExamServiceController {
@@ -38,8 +38,9 @@ public class ExamServiceController {
 	@RequestMapping(value = "/pvp/{start}/{end}/{productId}/{brandId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ExamServiceDto> consultarPvp(@PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date  start, @PathVariable @DateTimeFormat(pattern="yyyy-MM-dd") Date  end, 
 			@PathVariable Long productId, @PathVariable Long brandId) {
-//    	log.info("Consultando el precio final (pvp) del producto " + productId);
 		
+//		log.info("Consultando el precio final (pvp) del producto " + productId);
+
 		Calendar desde = Calendar.getInstance(); desde.setTime(start);
 		Calendar hasta = Calendar.getInstance(); hasta.setTime(end);
         ExamServiceDto response = service.consultarPvp(desde,  hasta, productId, brandId);

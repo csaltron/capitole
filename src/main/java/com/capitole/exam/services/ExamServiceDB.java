@@ -1,16 +1,13 @@
 package com.capitole.exam.services;
 
-import java.util.Calendar;
+import java.util.Date;
 
-import com.capitole.exam.domain.ExamServiceDto;
+import com.capitole.exam.domain.PricesEntity;
 
 public interface ExamServiceDB {
 
-    /*Operaciones de BDD*/
-    
-    
-    ExamServiceDto findPvp(Calendar startDate, Calendar endDate, Long productId, Long brandId);
+	/* Operaciones de BDD */
 
-
+	public PricesEntity findPvp(Date start, Date end, Long productId, Long brandId);
 
 }

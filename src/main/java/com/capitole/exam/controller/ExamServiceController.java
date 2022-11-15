@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capitole.exam.domain.PricesDto;
 import com.capitole.exam.domain.PricesEntity;
+import com.capitole.exam.mapping.PricesMapper;
 import com.capitole.exam.services.ExamServiceDB;
 
 
@@ -22,6 +24,9 @@ public class ExamServiceController {
 
 	@Autowired
 	private ExamServiceDB service;
+	
+	@Autowired
+	private PricesMapper pricesMapper;
 
 //    REQUERIMIENTO
 //    Acepte como parámetros de entrada: fecha de aplicación, identificador de producto, identificador de cadena.
@@ -29,14 +34,16 @@ public class ExamServiceController {
 //     
 
 	@RequestMapping(value = "/pvp/{start}/{end}/{productId}/{brandId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<PricesEntity> consultarPvp(
+	public ResponseEntity<PricesDto> consultarPvp(
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd hh24:mi:ss") Date start,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd hh24:mi:ss") Date end, @PathVariable Long productId,
 			@PathVariable Long brandId) {
 
 		PricesEntity response = service.findPvp(start, end, productId, brandId);
+		
+		PricesDto pricesDto = pricesMapper.priceDbToPricesDto(response);
 
-		return ResponseEntity.ok(response);
+		return ResponseEntity.ok(pricesDto);
 	}
 
 }

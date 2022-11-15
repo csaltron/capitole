@@ -1,8 +1,7 @@
 package com.capitole.exam.domain;
 
-import java.util.Calendar;
+import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -10,7 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,6 +17,8 @@ import lombok.NoArgsConstructor;
 public class PricesDto {
 
 	@Id
+	private Long priceId;
+	
 //	PRODUCT_ID: Identificador código de producto.
 	private Long productId;
 
@@ -25,9 +26,9 @@ public class PricesDto {
 	private Long brandId;
 
 //	START_DATE , END_DATE: rango de fechas en el que aplica el precio tarifa indicado.
-	private Calendar startDate;
+	private Date startDate;
 
-	private Calendar endDate;
+	private Date endDate;
 
 //	PRICE_LIST: Identificador de la tarifa de precios aplicable.
 	private Double priceList;

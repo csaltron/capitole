@@ -77,12 +77,18 @@
 	            <artifactId>hamcrest-core</artifactId>
 	        </exclusion>
 	    </exclusions>
-	</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-spring-boot</artifactId>
 		</dependency>
-	</dependencies>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-spring-boot</artifactId>
+			</dependency>
+			<dependency>
+			    <groupId>org.mapstruct</groupId>
+			    <artifactId>mapstruct</artifactId>
+			    <version>1.5.3.Final</version>
+			</dependency>
+		</dependencies>
+		
 
 	<build>
 		<plugins>
@@ -124,6 +130,22 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.8</source> 
+                <target>1.8</target> 
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                         <version>1.5.3.Final</version>
+                    </path>
+                    
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 

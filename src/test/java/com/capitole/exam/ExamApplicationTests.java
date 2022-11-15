@@ -19,7 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.capitole.exam.controller.ExamServiceController;
-import com.capitole.exam.domain.PricesEntity;
+import com.capitole.exam.domain.PricesDto;
 import com.capitole.exam.repository.ExamRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +55,7 @@ class ExamApplicationTests {
 		Date startDate = Date.from(dateFrom.atZone(ZoneId.systemDefault()).toInstant());
 		Date endDate = Date.from(dateTo.atZone(ZoneId.systemDefault()).toInstant());
 
-		ResponseEntity<PricesEntity> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
+		ResponseEntity<PricesDto> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
 				Long.valueOf(1));
 
 		log.info("RESULT TEST 1: " + item.getBody().toString());
@@ -75,7 +75,7 @@ class ExamApplicationTests {
 		Date startDate = Date.from(dateFrom.atZone(ZoneId.systemDefault()).toInstant());
 		Date endDate = Date.from(dateTo.atZone(ZoneId.systemDefault()).toInstant());
 
-		ResponseEntity<PricesEntity> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
+		ResponseEntity<PricesDto> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
 				Long.valueOf(1));
 
 		log.info("RESULT TEST 2: " + item.getBody().toString());
@@ -93,7 +93,7 @@ class ExamApplicationTests {
 		Date startDate = Date.from(dateFrom.atZone(ZoneId.systemDefault()).toInstant());
 		Date endDate = Date.from(dateTo.atZone(ZoneId.systemDefault()).toInstant());
 
-		ResponseEntity<PricesEntity> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
+		ResponseEntity<PricesDto> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
 				Long.valueOf(1));
 
 		log.info("RESULT TEST 3: " + item.getBody().toString());
@@ -111,7 +111,7 @@ class ExamApplicationTests {
 		Date startDate = Date.from(dateFrom.atZone(ZoneId.systemDefault()).toInstant());
 		Date endDate = Date.from(dateTo.atZone(ZoneId.systemDefault()).toInstant());
 
-		ResponseEntity<PricesEntity> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
+		ResponseEntity<PricesDto> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
 				Long.valueOf(1));
 
 		log.info("RESULT TEST 4: " + item.getBody().toString());
@@ -130,7 +130,7 @@ class ExamApplicationTests {
 		Date startDate = Date.from(dateFrom.atZone(ZoneId.systemDefault()).toInstant());
 		Date endDate = Date.from(dateTo.atZone(ZoneId.systemDefault()).toInstant());
 
-		ResponseEntity<PricesEntity> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
+		ResponseEntity<PricesDto> item = services.consultarPvp(startDate, endDate, Long.valueOf(35455),
 				Long.valueOf(1));
 
 		log.info("RESULT TEST 5: " + item.getBody().toString());

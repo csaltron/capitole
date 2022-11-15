@@ -1,25 +1,24 @@
 package com.capitole.exam.domain;
 
-import java.util.Calendar;
+import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Data
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PRICES")
-public class ExamServiceDto {
+@Data
+public class PricesDto {
+
+	@Id
+	private Long priceId;
 	
-	@Id    
 //	PRODUCT_ID: Identificador código de producto.
 	private Long productId;
 
@@ -27,9 +26,9 @@ public class ExamServiceDto {
 	private Long brandId;
 
 //	START_DATE , END_DATE: rango de fechas en el que aplica el precio tarifa indicado.
-	private Calendar startDate;
+	private Date startDate;
 
-	private Calendar endDate;
+	private Date endDate;
 
 //	PRICE_LIST: Identificador de la tarifa de precios aplicable.
 	private Double priceList;

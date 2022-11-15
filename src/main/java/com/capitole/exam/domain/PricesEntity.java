@@ -1,6 +1,6 @@
 package com.capitole.exam.domain;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,10 +18,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PRICES")
-public class PricesDB {
+@Table(name = "prices")
+public class PricesEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long priceId;
+
 //	PRODUCT_ID: Identificador código de producto.
 	private Long productId;
 
@@ -29,9 +31,9 @@ public class PricesDB {
 	private Long brandId;
 
 //	START_DATE , END_DATE: rango de fechas en el que aplica el precio tarifa indicado.
-	private Calendar startDate;
+	private Timestamp startDate;
 
-	private Calendar endDate;
+	private Timestamp endDate;
 
 //	PRICE_LIST: Identificador de la tarifa de precios aplicable.
 	private Double priceList;
@@ -44,10 +46,5 @@ public class PricesDB {
 
 //	CURR: iso de la moneda.
 	private String curr;
-	
-	
-	
-	
-	
 
 }
